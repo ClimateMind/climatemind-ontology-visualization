@@ -1,0 +1,137 @@
+body {
+    overflow: hidden;
+}
+
+.grid-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 3fr) 1.5fr;
+    grid-template-rows: 0.3fr 5.5fr 2.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "graph-select node-search right-controls"
+    "cytoscape-graph-container cytoscape-graph-container right-controls"
+    "bottom-controls bottom-controls .";
+    overflow: hidden;
+}
+
+#parent-object-output {
+    grid-area: object-output;
+    overflow: scroll;
+    min-height: 0;
+}
+
+#parent-object-output > pre {
+    height: 100%;
+}
+
+#filter-select {
+    grid-area: filter-select;
+}
+
+#graph-select {
+    grid-area: graph-select;
+}
+
+#node-search {
+    grid-area: node-search;
+}
+
+#cytoscape-graph-container {
+    grid-area: cytoscape-graph-container;
+    overflow: hidden;
+}
+
+#right-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1.8fr 0.2fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "object-output object-output object-output"
+    "filter-select filter-select filter-select";
+    grid-area: right-controls;
+    min-width: 0;
+}
+
+select {
+    overflow: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+}
+
+#bottom-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr) 2fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px 0px;
+    grid-template-areas:
+    "effects-output causes-output big-node-name"
+    "effects-output causes-output big-node-name";
+    grid-area: bottom-controls;
+    overflow: scroll;
+}
+
+#effects-output {
+    grid-area: effects-output;
+}
+
+#causes-output {
+    grid-area: causes-output;
+}
+
+#big-node-name {
+    grid-area: big-node-name;
+}
+
+.output_parent {
+    display: flex;
+}
+
+.output_child {
+    flex: 0 0 20%;
+    margin: 0.05em;
+    border: 1px solid black;
+    overflow: scroll;
+    min-height: 100%;
+    font-size: 12px;
+}
+
+
+#node-name-output {
+    flex: 1;
+    font-size: 20px;
+}
+
+
+#graph {
+    flex: 3 1 60vw;
+    padding-right: 10px;
+
+}
+
+#right_controls {
+    flex: 1 1 20vw;
+}
+
+#upper_box {
+    display: flex;
+}
+
+
+#cytoscape-graph-container {
+    /*height: 70vh;*/
+    border: 1px solid gray;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: scroll;
+    background-color: lightgrey;
+}
+
+h1 {
+    padding-left: 0.5em;
+}
