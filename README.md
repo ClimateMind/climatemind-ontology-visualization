@@ -2,7 +2,7 @@
 
 The ontology is visualized using cytoscape.js and Dash. 
 
-![image][https://github.com/ClimateMind/climatemind-visualization/blob/main/README_image.jpg]
+![image][https://github.com/ClimateMind/climatemind-visualization/blob/main/README_image.jpg?raw=true]
 
 ## Setup
 
