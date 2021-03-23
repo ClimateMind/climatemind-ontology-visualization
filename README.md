@@ -1,8 +1,8 @@
-# climatemind-visualization
+# climatemind-ontology-visualization
 
 The ontology is visualized using cytoscape.js and Dash. 
 
-![image](https://github.com/ClimateMind/climatemind-visualization/blob/main/README_image.jpg?raw=true)
+![image](https://github.com/ClimateMind/climatemind-ontology-visualization/blob/main/README_image.jpg?raw=true)
 
 ## Setup
 
@@ -10,7 +10,7 @@ The ontology is visualized using cytoscape.js and Dash.
 1. Clone the repository
 
 ```
-git clone https://github.com/ClimateMind/climatemind-visualization.git
+git clone https://github.com/ClimateMind/climatemind-ontology-visualization.git
 ```
 2. Install the requirements
 ```
