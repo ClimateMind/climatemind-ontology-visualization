@@ -2,13 +2,13 @@
 
 The ontology is visualized using cytoscape.js and Dash. 
 
-![image](https://github.com/ClimateMind/climatemind-ontology-visualization/blob/main/README_image.jpg?raw=true)
+![image](/README_image.jpg)
 
 ## Setup
 
-You can run this visualization via docker with the command
+The easiest way to run this visualization is via docker with the command
 ```
-docker run -p 8050:8050 henry2833/climatemind-visualization
+docker run -p 8050:8050 henry2833/climatemind-ontology-visualization
 ```
 It contains the ontology downloaded and processed at Mar 23. 
 Then, go to http://127.0.0.1:8050/
@@ -16,6 +16,8 @@ Then, go to http://127.0.0.1:8050/
 ### Setup without Docker
 
 1. Follow the instructions at ClimateMind/climatemind-ontology-processing.git and download their requirements.txt and install it as a pip module.
+
+  The requirements.txt file for this project doesn't include climatemind-ontology-processing. To run this project without Docker, you need to have installed the ontology-processing pip package on your machine. 
 
 2. Clone the repository
 ```
@@ -64,3 +66,6 @@ Even though nodes might show up as having sources on WebProtege, these sources m
 
 ## Notes
 ```ontology.owl``` file is included in this repository. However, if you want to see an updated view of the repository, then download the OWL from WebProtge and replace the ontology.owl file.
+
+
+If you get an error when installing `pygraphviz`, then try `sudo apt-get install graphviz libgraphviz-dev pkg-config`.
