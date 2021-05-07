@@ -140,6 +140,7 @@ layout_parts = {
         id="node-search", className="dropdowns", placeholder="Search for nodes"
     ),
     "right-controls": html.Div(id="right-controls"),
+    "tooltip-div": html.Div(id = "tooltip-div"),
     "cytoscape-graph-container": html.Div(id="cytoscape-graph-container"),
     "bottom-controls": html.Div(id="bottom-controls"),
 }

@@ -133,9 +133,9 @@ export function make_cyto(personal_value, cyto_storage, storage_index = 0) {
         layout: {
             name: 'preset'
         },
-        wheelSensitivity: 0.15
+        wheelSensitivity: 0.15,
     });
-
+    cy.nodes().lock();
     let local_storage_key = `cytoscape_graph_cache_${personal_value}_${storage_index}`
     if (localStorage.getItem(local_storage_key) && storage_index) {
         console.log("Reusing old graph: ", local_storage_key)
@@ -210,6 +210,31 @@ document.addEventListener('keydown', function (key) {
     else if (key.code === "KeyR") {
         localStorage.clear() // Clear local storage
         console.log("Cleared local storage")
+    } else if (key.code === "Space") {
+        cy.nodes().unlock();
+    }
+});
+
+document.addEventListener('keyup', function (key) {
+    if (key.code === "Space") {
+        cy.nodes().lock();
+    }
+});
+
+let timeout, alerted_already = false;
+document.getElementById("cytoscape-graph-container").addEventListener('mousedown', function () {
+    if (!alerted_already) {
+        timeout = setTimeout(() => {
+            alert("Hold down Space to allow moving nodes");
+        }, 1000);
+        alerted_already = true;
     }
 })
+
+document.getElementById("cytoscape-graph-container").addEventListener('mouseup', function () {
+    clearTimeout(timeout);
+})
 window.make_cyto = make_cyto;
+const loaded_event = new Event("make-cyto-loaded");
+console.log("dispatching event")
+window.dispatchEvent(loaded_event);

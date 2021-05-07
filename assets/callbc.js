@@ -5,22 +5,34 @@ let old_filter_value = "none"
 if (!window.dash_clientside) {
     window.dash_clientside = {};
 }
+
+function call_make_cyto(arg1, arg2) {
+    if (typeof make_cyto !== 'undefined') {
+        make_cyto(arg1, arg2);
+    } else {
+        window.addEventListener("make-cyto-loaded", () => {
+            make_cyto(arg1, arg2);
+        });
+    }
+}
+
 window.dash_clientside = Object.assign({}, window.dash_clientside, {
     clientside: {
 
         // All these functions will be called by Dash.
         search_nodes: function (search_term) {
-            filter_exported.search_node(search_term)
+            // filter_exported.search_node(search_term)
         },
         update_personal_value: function (personal_value) {
             if (personal_value == undefined) {
                 personal_value = "downstream_mitigations"
             }
-            make_cyto(personal_value, cyto_storage)
+            console.log("attaching event");
+            call_make_cyto(personal_value, cyto_storage);
         },
         update_storage_globals: function (_cyto_storage) {
             cyto_storage = _cyto_storage;
-            make_cyto("increase in physical violence", cyto_storage)
+            call_make_cyto("increase in physical violence", cyto_storage);
         },
         fill_output_div: function (_) {
             // Initialize output box
